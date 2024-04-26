@@ -40,6 +40,14 @@ async function run() {
       res.send(result);
     });
 
+    app.get("/itemscategory/:category", async (req, res) => {
+      console.log(req.params.category);
+      const result = await itemCollection
+        .find({ subcategory_Name: req.params.category })
+        .toArray();
+      res.send(result);
+    });
+
     app.get("/allitems", async (req, res) => {
       const result = await itemCollection.find().toArray();
       res.send(result);
