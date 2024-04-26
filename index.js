@@ -1,6 +1,6 @@
 const express = require("express");
 const cors = require("cors");
-const { MongoClient, ServerApiVersion } = require("mongodb");
+const { MongoClient, ServerApiVersion, ObjectId } = require("mongodb");
 
 // config
 require("dotenv").config();
@@ -37,6 +37,40 @@ async function run() {
       const result = await itemCollection
         .find({ email: req.params.email })
         .toArray();
+      res.send(result);
+    });
+
+    app.get("/items/:id", async (req, res) => {
+      const result = await itemCollection.findOne({
+        _id: new ObjectId(req.params.id),
+      });
+      res.send(result);
+    });
+
+    app.put("/updateitems/:id", async (req, res) => {
+      console.log(req.params.id);
+      const query = { _id: new ObjectId(req.params.id) };
+      const data = {
+        $set: {
+          image: req.body.image,
+          item_name: req.body.item_name,
+          subcategory_Name: req.body.subcategory_Name,
+          description: req.body.description,
+          price: req.body.price,
+          rating: req.body.rating,
+          customization: req.body.customization,
+          processing_time: req.body.processing_time,
+          stockStatus: req.body.stockStatus,
+        },
+      };
+      const result = await itemCollection.updateOne(query, data);
+      res.send(result);
+    });
+
+    app.delete("/delete/:id", async (req, res) => {
+      const result = await itemCollection.deleteOne({
+        _id: new ObjectId(req.params.id),
+      });
       res.send(result);
     });
     // Send a ping to confirm a successful connection
