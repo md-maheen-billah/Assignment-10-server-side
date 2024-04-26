@@ -25,7 +25,12 @@ const client = new MongoClient(uri, {
 async function run() {
   try {
     // Connect the client to the server	(optional starting in v4.7)
-    await client.connect();
+    const itemCollection = client.db("PaintDrawDB").collection("items");
+    // await client.connect();
+    app.post("/addItems", async (req, res) => {
+      const result = await itemCollection.insertOne(req.body);
+      res.send(result);
+    });
     // Send a ping to confirm a successful connection
     await client.db("admin").command({ ping: 1 });
     console.log(
