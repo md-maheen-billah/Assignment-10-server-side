@@ -26,6 +26,7 @@ async function run() {
   try {
     // Connect the client to the server	(optional starting in v4.7)
     const itemCollection = client.db("PaintDrawDB").collection("items");
+    const categoryCollection = client.db("PaintDrawDB").collection("category");
     // await client.connect();
     app.post("/addItems", async (req, res) => {
       const result = await itemCollection.insertOne(req.body);
@@ -50,6 +51,11 @@ async function run() {
 
     app.get("/allitems", async (req, res) => {
       const result = await itemCollection.find().toArray();
+      res.send(result);
+    });
+
+    app.get("/category", async (req, res) => {
+      const result = await categoryCollection.find().toArray();
       res.send(result);
     });
 
