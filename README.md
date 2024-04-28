@@ -13,6 +13,7 @@ Inplemented the following:
 -  Express.js: Utilizes Express.js for streamlined server-side development.
 -  Node.js: Leverages Node.js for scalable and high-performance server applications.
 -  React Router: Implements React Router for client-side routing within the application.
+-  Context API: Utilizes React Context API for managing global state and data across components.
 -  Sort By: Implements functionality to sort data based on specified criteria.
 -  Mobile and Tablet Responsive: Ensures responsive design and layout for optimal viewing experience on mobile and tablet devices.
 -  Firebase Authentication: Integrates Firebase Authentication for user authentication and authorization.
@@ -26,3 +27,4 @@ The project utilizes the following NPM packages:
 -  Lottie React: Incorporates Lottie React for seamless integration of Adobe After Effects animations into the project.
 -  React-simple-typewriter: Integrates React-simple-typewriter to add dynamic and animated typewriter effects to text elements within the application.
 -  React Awesome Reveal: Utilizes React Awesome Reveal to easily create stunning and customizable reveal animations for elements as they enter the viewport.
+-  React Helmet: Incorporates the React Helmet library for managing the document head of the application.
