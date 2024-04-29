@@ -23,6 +23,7 @@ Inplemented the following:
 # NPM Packages
 The project utilizes the following NPM packages:
 -  AOS Package: Integrates the AOS (Animate On Scroll) library for animating elements on scroll.
+-  Animate.css: Utilizes the Animate.css library for adding CSS animations to elements.
 -  Swiper Slider: Utilizes the Swiper slider library for creating responsive and touch-enabled sliders in the application.
 -  Lottie React: Incorporates Lottie React for seamless integration of Adobe After Effects animations into the project.
 -  React-simple-typewriter: Integrates React-simple-typewriter to add dynamic and animated typewriter effects to text elements within the application.
